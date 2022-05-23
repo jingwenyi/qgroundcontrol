@@ -243,5 +243,8 @@ QGeoTiledMapReplyQGC::cacheReply(QGCCacheTile* tile)
 void
 QGeoTiledMapReplyQGC::timeout()
 {
+    if(_reply) {
+        _reply->abort();
+    }
     emit aborted();
 }
